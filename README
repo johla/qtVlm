@@ -1,15 +1,298 @@
-Building qtVlm
- In order de build qtVlm you'll need to have Qt developpement suite.
+# qtVlm - Virtual Loup de mer GUI
 
- To launch build: go in trunk folder and run: make
+**A Qt-based application for virtual sailing and marine navigation**
 
- Installing:
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey)](https://github.com/johla/qtVlm)
 
- Warning: install is only working on unix like arch
+---
 
- 1/edit Makefile to adjust the install folder (prefix variable: prefix = ~/qtVlm)
- 2/ run: make install
+## Overview
 
- For windows in order to install qtVlm, you'll need to copy qtVlm.exe and tr folder to the place where you want to install qtVlm, you'll then need to copy a list of folder from base_dir to qtVlm install folder: grib, icon, img, maps, polar
+qtVlm is a comprehensive sailing and navigation application that combines weather visualization, route planning, and virtual sailing capabilities. Whether you're planning a real voyage or competing in virtual regattas, qtVlm provides the tools you need.
 
- 
+### Key Features
+
+🌊 **Weather Visualization**
+- Display GRIB weather files on interactive maps
+- Multiple weather parameters (wind, pressure, waves, temperature)
+- Time-based weather animation
+- Isobar and isotherm displays
+
+⛵ **Virtual Sailing**
+- Connect to Virtual Regatta (VLM) online platform
+- Real-time race participation
+- Opponent tracking
+- Race rankings and statistics
+
+🗺️ **Navigation Tools**
+- Route planning with weather optimization
+- Waypoint management (POI - Points of Interest)
+- Great circle (orthodromic) calculations
+- Distance and bearing measurements
+
+📊 **Boat Performance**
+- Polar diagram support
+- Performance calculations based on weather
+- Speed optimization
+- VMG (Velocity Made Good) analysis
+
+🧭 **Real Boat Support**
+- GPS/NMEA data integration
+- Track recording
+- Real-time position display
+
+---
+
+## Quick Start
+
+### Installation
+
+**Linux:**
+```bash
+git clone https://github.com/johla/qtVlm.git
+cd qtVlm
+make
+./qtVlm
+```
+
+**Windows:**
+Download the latest release from the [Releases page](https://github.com/johla/qtVlm/releases)
+
+**macOS:**
+```bash
+brew install qt@5
+git clone https://github.com/johla/qtVlm.git
+cd qtVlm
+make
+./qtVlm.app/Contents/MacOS/qtVlm
+```
+
+For detailed build instructions, see [BUILD_GUIDE.md](BUILD_GUIDE.md)
+
+---
+
+## Documentation
+
+We believe documentation is a sign of empathy for users and developers. We've created comprehensive guides to help you:
+
+- **[BUILD_GUIDE.md](BUILD_GUIDE.md)** - Step-by-step building instructions for all platforms
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Understand how qtVlm is structured
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute to the project
+- **[CODE_ASSESSMENT.md](CODE_ASSESSMENT.md)** - Code quality analysis and recommendations
+- **[DEPENDENCIES.md](DEPENDENCIES.md)** - Third-party libraries and licensing
+
+---
+
+## System Requirements
+
+### Minimum Requirements
+- **OS**: Windows 7+, Linux (kernel 3.x+), macOS 10.12+
+- **RAM**: 2 GB
+- **Disk**: 500 MB
+- **Display**: 1024x768
+
+### Recommended
+- **OS**: Windows 10, Ubuntu 20.04+, macOS 10.15+
+- **RAM**: 4 GB or more
+- **Disk**: 1 GB
+- **Display**: 1920x1080 or higher
+- **Network**: For weather downloads and VLM racing
+
+---
+
+## Building from Source
+
+### Prerequisites
+- Qt 5.x or 4.8+ (Qt 5.12+ recommended)
+- C++11 compatible compiler
+- qmake and make tools
+
+### Quick Build
+
+```bash
+# Clone the repository
+git clone https://github.com/johla/qtVlm.git
+cd qtVlm
+
+# Build all libraries and the application
+make
+
+# Run qtVlm
+./qtVlm          # Linux/macOS
+# or
+qtVlm.exe        # Windows
+```
+
+### Installation (Linux/macOS)
+
+```bash
+# Edit Makefile to set installation directory
+nano Makefile
+# Change: prefix = ~/qtVlm
+# To your preferred path
+
+# Install
+make install
+```
+
+### Installation (Windows)
+
+1. Copy `qtVlm.exe` to your desired installation folder
+2. Copy the `tr` folder (translations)
+3. Copy from `base_dir`: `icon`, `img`, `polar`, `dataColors.dat`
+4. Create empty folders: `grib`, `maps`
+
+For more details, see [BUILD_GUIDE.md](BUILD_GUIDE.md)
+
+---
+
+## Usage
+
+### Getting Weather Data
+
+1. **Download GRIB Files**: Use services like:
+   - SailDocs: https://www.saildocs.com/
+   - NOAA: https://www.ncdc.noaa.gov/
+   - Virtual Regatta built-in downloader
+
+2. **Open in qtVlm**: File → Open GRIB File
+
+3. **View Weather**: Use time slider to see forecasts
+
+### Creating Routes
+
+1. Click "New Route" in toolbar
+2. Right-click map to add waypoints
+3. Use weather routing for optimization
+4. Export as GPX or other formats
+
+### Virtual Racing
+
+1. Configure VLM account: Settings → VLM Parameters
+2. Select your boat
+3. Set destination waypoint
+4. Monitor progress and rankings
+
+---
+
+## Supported File Formats
+
+| Format | Type | Purpose |
+|--------|------|---------|
+| GRIB (v1/v2) | Weather | Meteorological data |
+| GPX | Route | GPS exchange format |
+| BSB/KAP | Chart | Raster nautical charts |
+| GSHHS | Map | Coastline data |
+| POL | Performance | Polar diagrams |
+| NMEA 0183 | GPS | Position data |
+
+---
+
+## Translations
+
+qtVlm is available in multiple languages:
+- English (en)
+- French (fr)
+- Spanish (es)
+- Czech (cz)
+
+Help us add more! See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+## Screenshots
+
+*(Coming soon - contributions welcome!)*
+
+---
+
+## Contributing
+
+We welcome contributions! Whether you're:
+- Fixing bugs 🐛
+- Adding features ✨
+- Improving documentation 📝
+- Translating the interface 🌍
+- Reporting issues 📢
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+
+---
+
+## License
+
+qtVlm is free software licensed under the **GNU General Public License v3.0**.
+
+```
+qtVlm: Virtual Loup de mer GUI
+Copyright (C) 2008-2024 Christophe Thomas (Oxygen77) and contributors
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+```
+
+See [LICENSE](LICENSE) for the full license text.
+
+### Third-Party Licenses
+
+qtVlm includes several third-party libraries. See [DEPENDENCIES.md](DEPENDENCIES.md) for details.
+
+---
+
+## Credits
+
+### Original Author
+- **Christophe Thomas** (Oxygen77)
+
+### Based On
+- **zyGrib** by Jacques Zaninetti - Meteorological GRIB file viewer
+
+### Contributors
+Thank you to all contributors! See the [Contributors page](https://github.com/johla/qtVlm/graphs/contributors)
+
+---
+
+## Support
+
+### Getting Help
+- **Documentation**: Start with [BUILD_GUIDE.md](BUILD_GUIDE.md) and [ARCHITECTURE.md](ARCHITECTURE.md)
+- **Issues**: [GitHub Issues](https://github.com/johla/qtVlm/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/johla/qtVlm/discussions)
+
+### Reporting Bugs
+Please include:
+- OS and version
+- qtVlm version
+- Steps to reproduce
+- Expected vs actual behavior
+- Screenshots if applicable
+
+---
+
+## Links
+
+- **Homepage**: http://qtvlm.sf.net
+- **Repository**: https://github.com/johla/qtVlm
+- **Virtual Regatta**: http://www.virtualregatta.com/
+
+---
+
+## Version
+
+**Current Version**: 3.4.3-patch3+
+
+See version history in git commits or releases page.
+
+---
+
+**Happy Sailing! ⛵**
+
+*"The pessimist complains about the wind; the optimist expects it to change; the realist adjusts the sails." - William Arthur Ward*
